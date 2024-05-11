@@ -1,0 +1,9 @@
+<div class="container mt-2 shadow-lg">
+  <h1 class="text-warning text-center">Listado de Personajes</h1>
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let x of charactersList">
+      <app-characters-character-card [character]="x" />
+    </div>
+  </div>
+</div>
