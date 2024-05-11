@@ -4,8 +4,8 @@
   </div>
   <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
   <div class="row" *ngIf="!isLoading">
-    <div class="col-12 col-sm-6 col-md-4" *ngFor="let x; of">
-      <!-- <app-characters-character-card [character]="x" /> -->
+    <div class="col-12 col-sm-6 col-md-3" *ngFor="let episode of episodesList">
+      <app-episodes-episode-card [episode]="episode" />
     </div>
   </div>
   <!-- Paginador -->
@@ -23,7 +23,7 @@
           </button>
         </div>
       </li>
-      <h5 class="text-center text-success">
+      <h5 class="text-center text-success ml-2">
         Páginas en Total {{ totalPages }} !
       </h5>
 
