@@ -1,24 +1,42 @@
-<div class="card border-primary mb-3" style="max-width: 25rem">
+<div class="card border-primary mb-3" style="max-width: 30rem">
   <div class="card-header">
-    <h3 class="card-title">Nombre: {{ character?.name }}</h3>
+    <h5 class="card-title text-primary text-center">
+      Nombre: {{ character?.name }}
+    </h5>
   </div>
-  <div class="card-body">
-    <h4 class="card-title">
-      Estado:
-      <span
-        class="badge badge-{{
-          character?.status == 'Alive' ? 'success' : 'danger'
-        }}"
-      >
-        {{ character?.status }}
-      </span>
-    </h4>
-    <div class="card-img">
-      <img
-        class="card-img-top"
-        src="{{ character?.image }}"
-        alt="{{ character?.name }}"
-      />
+  <div class="row">
+    <div class="col-6">
+      <div class="img-thumbnail">
+        <img
+          class="card-img"
+          src="{{ character?.image }}"
+          alt="{{ character?.name }}"
+        />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <h4 class="card-title">
+          Estado:
+          <span
+            class="badge badge-{{
+              character?.status == 'Alive' ? 'success' : 'danger'
+            }}"
+          >
+            {{ character?.status }}
+          </span>
+        </h4>
+        <h4 class="card-title">
+          Especie:
+          <span
+            class="badge badge-{{
+              character?.species == 'Human' ? 'success' : 'danger'
+            }}"
+          >
+            {{ character?.species }}
+          </span>
+        </h4>
+      </div>
     </div>
   </div>
   <div class="card-footer">
@@ -26,7 +44,7 @@
       class="btn btn-outline-primary btn-block"
       [routerLink]="['/characters/detalle/', character!.id]"
     >
-      Detalles
+      Ver Personaje
       <i class="fa fa-eye"></i>
     </button>
   </div>
