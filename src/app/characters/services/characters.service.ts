@@ -19,7 +19,7 @@ export class CharactersService {
     return this._http.get<CharactersResponse>(`${this._baseUrl}/character`);
   }
   getCharacterById(id: number): Observable<Character> {
-    return this._http.get<Character>(`${this._baseUrl}/${id}`);
+    return this._http.get<Character>(`${this._baseUrl}/character/${id}`);
   }
 
   getCharactersPaginated(page: number): Observable<CharactersResponse> {
