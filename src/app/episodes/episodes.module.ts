@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { EpisodesRoutingModule } from './episodes-routing.module';
 import { RouterModule } from '@angular/router';
+import { ListPageComponent } from './pages/list-page/list-page.component';
+import { SharedModule } from '../shared/shared/shared.module';
+import { EpisodePageComponent } from './pages/episode-page/episode-page.component';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, EpisodesRoutingModule],
+  declarations: [ListPageComponent, EpisodePageComponent],
+  imports: [CommonModule, EpisodesRoutingModule, SharedModule],
 })
 export class EpisodesModule {}
