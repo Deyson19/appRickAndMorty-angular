@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3" style="max-width: 25rem">
+  <div class="card-header">
+    <h3 class="card-title">Nombre: {{ character?.name }}</h3>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">
+      Estado:
+      <span
+        class="badge badge-{{
+          character?.status == 'Alive' ? 'success' : 'danger'
+        }}"
+      >
+        {{ character?.status }}
+      </span>
+    </h4>
+    <div class="card-img">
+      <img
+        class="card-img-top"
+        src="{{ character?.image }}"
+        alt="{{ character?.name }}"
+      />
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <button
+      class="btn btn-outline-primary btn-block"
+      routerLink="['character',{{ character?.id }}]"
+    >
+      Detalles
+      <i class="fa fa-eye"></i>
+    </button>
+  </div>
+</div>
