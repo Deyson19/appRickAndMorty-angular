@@ -12,14 +12,76 @@ export class ListPageComponent implements OnInit {
   public isLoading = true;
   public mensaje = 'Cargando lista de personajes';
   public totalPages = 0;
+  private _nextPage = 0;
+  private _prevPage = 0;
 
   ngOnInit(): void {
+    this.obtenerTodos();
+  }
+  private obtenerTodos() {
     this._charactersService.getCharacters().subscribe((x) => {
       setTimeout(() => {
         this.charactersList = x.results;
         this.totalPages = x.info.pages;
+        this._nextPage = Number.parseInt(x.info.next.slice(-1));
+        if (x.info.prev) {
+          this._prevPage = Number.parseInt(x.info.prev.slice(-1));
+        }
         this.isLoading = false;
-      }, 1500);
+      }, 2500);
     });
+  }
+  // public lastPage() {
+  //   this.isLoading = true;
+  //   this.totalPages -= 1;
+  //   this._charactersService
+  //     .getCharactersPaginated(this._prevPage)
+  //     .subscribe((paginated) => {
+  //       setTimeout(() => {
+  //         this.charactersList = paginated.results;
+  //         this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
+  //         if (paginated.info.prev) {
+  //           this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
+  //         }
+  //         this.isLoading = false;
+  //       }, 1500);
+  //     });
+  // }
+  // public nextPage() {
+  //   this.isLoading = true;
+  //   this.totalPages -= 1;
+  //   this._charactersService
+  //     .getCharactersPaginated(this._nextPage)
+  //     .subscribe((paginated) => {
+  //       setTimeout(() => {
+  //         this.charactersList = paginated.results;
+  //         this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
+  //         if (paginated.info.prev) {
+  //           this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
+  //         }
+  //         this.isLoading = false;
+  //       }, 1800);
+  //     });
+  // }
+  public changePage(direction: 'previous' | 'next'): void {
+    this.isLoading = true;
+    const pageToFetch =
+      direction === 'previous' ? this._prevPage : this._nextPage;
+
+    this._charactersService
+      .getCharactersPaginated(pageToFetch)
+      .subscribe((paginated) => {
+        setTimeout(() => {
+          this.charactersList = paginated.results;
+          this.totalPages = paginated.info.pages;
+          if (paginated.info.next) {
+            this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
+          }
+          if (paginated.info.prev) {
+            this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
+          }
+          this.isLoading = false;
+        }, 1800);
+      });
   }
 }
