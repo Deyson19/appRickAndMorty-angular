@@ -1,8 +1,12 @@
 <div class="container mt-3 shadow-lg border-3">
   <div class="card-header">
     <h3 class="text-center text-primary">Listado de Episodios</h3>
+    <span class="badge bg-dark text-center"
+      >Página Actual: {{ currentPage }}
+    </span>
   </div>
   <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
+
   <div class="row" *ngIf="!isLoading">
     <div class="col-12 col-sm-6 col-md-3" *ngFor="let episode of episodesList">
       <app-episodes-episode-card [episode]="episode" />
@@ -23,7 +27,7 @@
           </button>
         </div>
       </li>
-      <h5 class="text-center text-success ml-2">
+      <h5 class="text-center text-success m-2">
         Páginas en Total {{ totalPages }} !
       </h5>
 

@@ -14,6 +14,7 @@ export class ListPageComponent implements OnInit {
   totalPages = 0;
   private _nextPage = 0;
   private _prevPage = 0;
+  public currentPage = 1;
 
   ngOnInit(): void {
     this.getAll();
@@ -24,13 +25,44 @@ export class ListPageComponent implements OnInit {
       if (data.results.length > 0) {
         setTimeout(() => {
           this.episodesList = data.results;
-          this.totalPages = data.info.count;
+          this.totalPages = data.info.pages;
           this.isLoading = false;
           this._nextPage = Number.parseInt(data.info.next.slice(-1));
         }, 1800);
       }
     });
   }
+  get nextPage() {
+    return this._nextPage;
+  }
 
-  changePage(pagina: 'previous' | 'next') {}
+  changePage(pagina: 'previous' | 'next') {
+    this.isLoading = true;
+    const pageToFetch = pagina === 'previous' ? this._prevPage : this._nextPage;
+    if (pageToFetch > this.totalPages) {
+      this.isLoading = false;
+      this.mensaje = 'No hay más episodios';
+      window.location.reload;
+      return;
+    }
+
+    this._episodesService
+      .getEpisodesPaginated(pageToFetch)
+      .subscribe((paginated) => {
+        setTimeout(() => {
+          if (paginated.results.length > 1) {
+            this.episodesList = paginated.results;
+            if (paginated.info.next) {
+              this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
+              this.currentPage = this._nextPage - 1;
+            }
+            this._nextPage = this.currentPage + 1;
+            if (paginated.info.prev) {
+              this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
+            }
+            this.isLoading = false;
+          }
+        }, 1800);
+      });
+  }
 }
