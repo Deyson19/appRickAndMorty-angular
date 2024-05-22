@@ -1,1 +1,46 @@
-<p>detalle works!</p>
+<app-shared-spinner
+  [mensaje]="mensaje"
+  class="mt-2"
+  *ngIf="isLoading; else lugar"
+/>
+
+<ng-template #lugar>
+  <div class="card text-end mb-3 shadow-lg">
+    <div class="card-header">
+      <h3 class="text-danger text-center">Nombre del Lugar:</h3>
+      <p class="text-white text-center">
+        {{ location!.name }}
+      </p>
+    </div>
+    <div class="card-body bg-transparent">
+      <h4 class="card-title text-primary">
+        Tipo de Lugar:
+        <span class="badge bg-dark">{{ location?.type }}</span>
+      </h4>
+      <h4 class="card-title text-primary">
+        Dimensión del Lugar:
+        <span class="badge bg-dark">{{ location?.dimension }}</span>
+      </h4>
+      <h4 class="card-title text-primary">
+        Cantidad de Habitantes:
+        <span class="badge bg-dark">{{ (location?.residents)!.length }}</span>
+      </h4>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="row">
+        <div class="col-8">
+          <p class="text-light">Creación: {{ location?.created | date }}</p>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-dark btn-block" routerLink="/locations">
+            <i
+              class="fas fa-arrow-rotate-left"
+              style="color: black; font-size: 20px"
+            ></i>
+            Regresar al Listado
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
