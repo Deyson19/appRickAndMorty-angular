@@ -36,49 +36,55 @@
             </h4>
           </div>
         </div>
-        <div class="card-img text-center">
-          <img
-            class="card-img-top w-75 h-50 img-thumbnail"
-            src="{{ character?.image }}"
-            alt="{{ character?.name }}"
-          />
-        </div>
-        <h4 class="card-title" *ngIf="character?.type">
-          Tipo:
-          {{ character?.type }}
-        </h4>
         <div class="row">
-          <div class="col-4 col-sm-auto">
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-success">
-                <h5 class="card-title">Origen:</h5>
-                <span class="badge bg-primary rounded-pill text-sm-start">
-                  {{ character!.origin.name }}
-                </span>
-              </li>
-            </ul>
+          <div class="col-8">
+            <div class="card-img text-center">
+              <img
+                class="w-75 img-thumbnail"
+                src="{{ character?.image }}"
+                alt="{{ character?.name }}"
+              />
+            </div>
           </div>
-          <div class="col-4 col-sm-auto">
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-success">
-                <h4 class="card-title">Ubicación:</h4>
-                <span class="badge bg-primary rounded-pill">
-                  {{ character!.location.name }}
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-4 col-sm-auto">
-            <ul class="list-group">
-              <li
-                class="list-group-item list-group-item-success d-flex justify-content-between align-items-center"
-              >
-                <h4 class="card-title">Cantidad Episodios:</h4>
-                <span class="badge bg-primary rounded-pill">
-                  {{ character!.episode.length }}
-                </span>
-              </li>
-            </ul>
+          <div class="col-4">
+            <h4 class="card-title" *ngIf="character?.type">
+              Tipo:
+              {{ character?.type }}
+            </h4>
+            <div class="row">
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-success">
+                    <h5 class="card-title">Origen:</h5>
+                    <span class="badge bg-primary rounded-pill text-sm-start">
+                      {{ character!.origin.name }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-success">
+                    <h4 class="card-title">Ubicación:</h4>
+                    <span class="badge bg-primary rounded-pill">
+                      {{ character!.location.name }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li
+                    class="list-group-item list-group-item-success d-flex justify-content-between align-items-center"
+                  >
+                    <h4 class="card-title">Cantidad Episodios:</h4>
+                    <span class="badge bg-primary rounded-pill">
+                      {{ character!.episode.length }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
