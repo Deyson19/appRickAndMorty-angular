@@ -1,1 +1,48 @@
-<p>list works!</p>
+<div class="container mt-3 shadow-lg border-3">
+  <div class="card-header">
+    <h3 class="text-center text-white">Listado de Lugares</h3>
+    <span class="badge bg-dark text-center"
+      >Página Actual: {{ currentPage }}
+    </span>
+  </div>
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let location of locations">
+      <app-locations-location [location]="location" />
+    </div>
+  </div>
+  <!-- Paginador -->
+  <div class="d-flex justify-content-center">
+    <ul class="pagination pagination-sm">
+      <li class="page-item disabled">
+        <div class="d-grid gap-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="changePage('previous')"
+          >
+            <i class="fas fas fa-arrow-circle-left"></i>
+            Anterior
+          </button>
+        </div>
+      </li>
+      <h5 class="text-center text-success m-2">
+        Páginas en Total {{ totalPages }} !
+      </h5>
+
+      <li class="page-item">
+        <div class="d-grid gap-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="changePage('next')"
+          >
+            Siguiente
+            <i class="fas fas fa-arrow-circle-right"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
