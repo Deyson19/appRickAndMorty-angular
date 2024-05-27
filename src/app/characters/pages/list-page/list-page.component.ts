@@ -10,7 +10,7 @@ export class ListPageComponent implements OnInit {
   private _charactersService = inject(CharactersService);
   public charactersList?: Character[];
   public isLoading = true;
-  public mensaje = 'Cargando lista de personajes';
+  public mensaje = 'Cargando el listado de personajes';
   public totalPages = 0;
   private _nextPage = 0;
   private _prevPage = 0;
