@@ -33,7 +33,7 @@
               character?.species == 'Human' ? 'success' : 'danger'
             }}"
           >
-            {{ character?.species }}
+            {{ character!.species | especie }}
           </span>
         </h4>
       </div>
