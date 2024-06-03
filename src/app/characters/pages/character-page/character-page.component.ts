@@ -13,7 +13,7 @@ export class CharacterPageComponent implements OnInit {
   private _route = inject(Router);
   public character?: Character;
   public isLoading = true;
-  public mensaje = 'Cargando datos del Personaje';
+  public mensaje = 'Cargando datos del Personaje\n';
   ngOnInit(): void {
     this._activeRoute.params
       .pipe(switchMap(({ id }) => this._characterService.getCharacterById(id)))
@@ -21,6 +21,7 @@ export class CharacterPageComponent implements OnInit {
         if (!character) {
           return this._route.navigate(['/characters/list']);
         }
+        this.mensaje += `\n \n ${character.name}`;
         setTimeout(() => {
           this.character = character;
           this.isLoading = false;
