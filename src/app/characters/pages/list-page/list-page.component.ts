@@ -31,38 +31,6 @@ export class ListPageComponent implements OnInit {
       }, 2500);
     });
   }
-  // public lastPage() {
-  //   this.isLoading = true;
-  //   this.totalPages -= 1;
-  //   this._charactersService
-  //     .getCharactersPaginated(this._prevPage)
-  //     .subscribe((paginated) => {
-  //       setTimeout(() => {
-  //         this.charactersList = paginated.results;
-  //         this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
-  //         if (paginated.info.prev) {
-  //           this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
-  //         }
-  //         this.isLoading = false;
-  //       }, 1500);
-  //     });
-  // }
-  // public nextPage() {
-  //   this.isLoading = true;
-  //   this.totalPages -= 1;
-  //   this._charactersService
-  //     .getCharactersPaginated(this._nextPage)
-  //     .subscribe((paginated) => {
-  //       setTimeout(() => {
-  //         this.charactersList = paginated.results;
-  //         this._nextPage = Number.parseInt(paginated.info.next.slice(-1));
-  //         if (paginated.info.prev) {
-  //           this._prevPage = Number.parseInt(paginated.info.prev.slice(-1));
-  //         }
-  //         this.isLoading = false;
-  //       }, 1800);
-  //     });
-  // }
   public changePage(direction: 'previous' | 'next'): void {
     this.isLoading = true;
     const pageToFetch =
