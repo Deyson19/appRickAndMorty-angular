@@ -1,5 +1,5 @@
 <div class="container mt-2 shadow-lg">
-  <h1 class="text-warning text-center">Listado de Personajes</h1>
+  <h1 class="text-white text-center">Listado de Personajes</h1>
   <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
   <div class="row" *ngIf="!isLoading">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let x of charactersList">
@@ -13,7 +13,7 @@
         <div class="d-grid gap-2">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary mx-2"
             (click)="changePage('previous')"
           >
             <i class="fas fas fa-arrow-circle-left"></i>
@@ -29,7 +29,7 @@
         <div class="d-grid gap-2">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary mx-2"
             (click)="changePage('next')"
           >
             Siguiente
