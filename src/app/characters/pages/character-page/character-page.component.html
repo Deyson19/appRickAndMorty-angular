@@ -1,5 +1,5 @@
 <div class="mt-2 container">
-  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading; else myCharacter" />
+  <app-shared-spinner [message]="message" *ngIf="isLoading; else myCharacter" />
   <ng-template #myCharacter>
     <div class="card col-12">
       <div class="card-header">
@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-4 col-sm-auto">
             <h4 class="card-title">
-              Estado:
+              Status:
               <span
                 class="badge badge-{{
                   character?.status == 'Alive' ? 'success' : 'danger'
@@ -21,7 +21,7 @@
           </div>
           <div class="col-4 col-sm-auto">
             <h4 class="card-title">
-              Especie:
+              Specie:
               <span class="badge badge">
                 {{ character!.species }}
               </span>
@@ -29,7 +29,7 @@
           </div>
           <div class="col-4 col-sm-auto">
             <h4 class="card-title">
-              Género:
+              Gender:
               <span class="badge badge">
                 {{ character!.gender }}
               </span>
@@ -48,14 +48,14 @@
           </div>
           <div class="col-4">
             <h4 class="card-title" *ngIf="character?.type">
-              Tipo:
+              Type:
               {{ character?.type }}
             </h4>
             <div class="row">
               <div class="col-4 col-sm-auto">
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-success">
-                    <h5 class="card-title">Origen:</h5>
+                    <h5 class="card-title">Origin:</h5>
                     <span class="badge bg-white rounded-pill text-sm-start">
                       {{ character!.origin.name }}
                     </span>
@@ -65,7 +65,7 @@
               <div class="col-4 col-sm-auto">
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-success">
-                    <h4 class="card-title">Ubicación:</h4>
+                    <h4 class="card-title">Location:</h4>
                     <span class="badge bg-white rounded-pill">
                       {{ character!.location.name }}
                     </span>
@@ -77,7 +77,7 @@
                   <li
                     class="list-group-item list-group-item-success d-flex justify-content-between align-items-center"
                   >
-                    <h4 class="card-title">Cantidad Episodios:</h4>
+                    <h4 class="card-title">Number of Episodes:</h4>
                     <span class="badge bg-white rounded-pill">
                       {{ character!.episode.length }}
                     </span>
@@ -91,12 +91,12 @@
       <div class="card-footer text-muted">
         <div class="row">
           <div class="col">
-            Fecha de creación: {{ character?.created | date : "dd/MM/yyyy" }}
+            Date of creation: {{ character?.created | date : "dd/MM/yyyy" }}
           </div>
           <div class="col">
             <button class="btn btn-outline-info" routerLink="../">
               <i class="fa fa-arrow-circle-left"></i>
-              Regresar
+              Back To List
             </button>
           </div>
         </div>
