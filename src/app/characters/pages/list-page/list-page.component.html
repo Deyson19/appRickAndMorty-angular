@@ -1,6 +1,6 @@
 <div class="container mt-2 shadow-lg">
-  <h1 class="text-white text-center">Listado de Personajes</h1>
-  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading" />
+  <h1 class="text-white text-center">Characters List</h1>
+  <app-shared-spinner [message]="message" *ngIf="isLoading" />
   <div class="row" *ngIf="!isLoading">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let x of charactersList">
       <app-characters-character-card [character]="x" />
@@ -17,13 +17,11 @@
             (click)="changePage('previous')"
           >
             <i class="fas fas fa-arrow-circle-left"></i>
-            Anterior
+            Prev
           </button>
         </div>
       </li>
-      <h5 class="text-center text-success">
-        Páginas en Total {{ totalPages }} !
-      </h5>
+      <h5 class="text-center text-success">Total {{ totalPages }} !</h5>
 
       <li class="page-item">
         <div class="d-grid gap-2">
@@ -32,7 +30,7 @@
             class="btn btn-primary mx-2"
             (click)="changePage('next')"
           >
-            Siguiente
+            Next
             <i class="fas fas fa-arrow-circle-right"></i>
           </button>
         </div>
