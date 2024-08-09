@@ -15,9 +15,9 @@ export class EpisodePageComponent implements OnInit {
   public isLoading = true;
   ngOnInit(): void {
     const episodeId = this._activatedRoute.snapshot.params['id'];
-    // console.log({ Params: this._activatedRoute.snapshot.url[1].path });//*Otra forma de obtener el id
+    // console.log({ Params: this._activatedRoute.snapshot.url[1].path });//*other way to get the id
     if (!episodeId) {
-      this._router.navigate(['/episodes/']); //!devolver el usuario a la lista de episodes
+      this._router.navigate(['/episodes/']); //!return to the list
       return;
     }
     this.isLoading = true;
