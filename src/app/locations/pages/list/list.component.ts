@@ -10,7 +10,7 @@ export class ListComponent implements OnInit {
   private _locationService = inject(LocationsService);
   public locations: Location[] = [];
   public isLoading = true;
-  public mensaje = 'Cargando Listado de Lugares';
+  public message = 'Loading List of Places';
   public currentPage = 1;
   private _nextPage = 0;
   private _prevPage = 0;
@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
     const pageToFind = pagina === 'previous' ? this._prevPage : this._nextPage;
     if (pageToFind > this.totalPages) {
       this.isLoading = false;
-      this.mensaje = 'No hay más registros';
+      this.message = 'Nothing to show';
       window.location.reload;
       return;
     }
