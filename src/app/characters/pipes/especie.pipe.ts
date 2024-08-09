@@ -6,10 +6,14 @@ import { Species } from '../interfaces/characters-response';
 })
 export class EspeciePipe implements PipeTransform {
   transform(value: string): string {
-    if (value === Species.Alien) {
-      return 'Alienígena';
-    } else {
-      return 'Humano';
-    }
+    return value;
   }
+  //*Spanish Translate
+  // transform(value: string): string {
+  //   if (value === Species.Alien) {
+  //     return 'Alienígena';
+  //   } else {
+  //     return 'Humano';
+  //   }
+  // }
 }
