@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
