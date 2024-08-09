@@ -12,7 +12,7 @@ export class DetalleComponent implements OnInit {
   private _activeRoute = inject(ActivatedRoute);
   private _locationsService = inject(LocationsService);
   isLoading = true;
-  mensaje = 'Buscando datos del lugar'.toUpperCase();
+  message = 'Searching for site data'.toUpperCase();
   location?: Location;
 
   ngOnInit(): void {
