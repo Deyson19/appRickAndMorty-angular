@@ -8,7 +8,7 @@ import { EpisodesService } from '../../services/episodes.service';
 })
 export class ListPageComponent implements OnInit {
   private _episodesService = inject(EpisodesService);
-  mensaje = 'Cargando la lista de episodios'.toUpperCase();
+  message = 'Loading the list of episodes'.toUpperCase();
   episodesList: Episode[] = [];
   isLoading = true;
   totalPages = 0;
@@ -41,7 +41,7 @@ export class ListPageComponent implements OnInit {
     const pageToFetch = pagina === 'previous' ? this._prevPage : this._nextPage;
     if (pageToFetch > this.totalPages) {
       this.isLoading = false;
-      this.mensaje = 'No hay más episodios';
+      this.message = 'Nothing to show';
       window.location.reload;
       return;
     }
