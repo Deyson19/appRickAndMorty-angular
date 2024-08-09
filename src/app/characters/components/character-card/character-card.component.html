@@ -1,7 +1,7 @@
 <div class="card border-primary mb-3" style="max-width: 30rem">
   <div class="card-header">
     <h5 class="card-title text-primary text-center">
-      Nombre: {{ character?.name }}
+      Name: {{ character?.name }}
     </h5>
   </div>
   <div class="row">
@@ -17,7 +17,7 @@
     <div class="col-6">
       <div class="card-body">
         <h4 class="card-title">
-          Estado:
+          Status:
           <span
             class="badge badge-{{
               character?.status == 'Alive' ? 'success' : 'danger'
@@ -27,13 +27,14 @@
           </span>
         </h4>
         <h4 class="card-title">
-          Especie:
+          Specie:
           <span
             class="badge badge-{{
               character?.species == 'Human' ? 'success' : 'danger'
             }}"
           >
-            {{ character!.species | especie }}
+            {{ character!.species }}
+            <!-- {{ character!.species | especie }} -->
           </span>
         </h4>
       </div>
@@ -44,7 +45,7 @@
       class="btn btn-outline-primary btn-block"
       [routerLink]="['/characters/detalle/', character!.id]"
     >
-      Ver Personaje
+      Show
       <i class="fa fa-eye"></i>
     </button>
   </div>
