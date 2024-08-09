@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./spinner.component.css'],
 })
 export class SpinnerComponent {
-  @Input() mensaje?: string;
+  @Input() message?: string;
 }
