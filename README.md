@@ -1,5 +1,6 @@
 # App Rick and Morty
-App completa: Consumir API de Rick y Morty con Angular 
+
+App: API Rick and Morty - English Version
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
 
